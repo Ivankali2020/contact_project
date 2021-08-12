@@ -151,7 +151,11 @@
                 <div class="card mt-4 ">
                     <div class="card-body  p-0 ">
                         <div class="">
-                        
+                               <?php if(isset($_POST['register'])){
+
+                                    echo register();
+
+                                } ?>
                             <table id="example" class="display align-middle text-center mb-0 table table-bordered table-hover table-striped table-responsive " style="width:100%">
                                 <thead class="table-success">
                                     <tr>
