@@ -157,13 +157,18 @@ function register(){
         // die($sql);
         if(mysqli_query($con, $sql)){
             return header("location:index.php");
+            // return true;
         }else{
             return 'Db error';
         }
 
-    }else{
-         return "<p class='alert alert-danger'> Something Was Wrong Try Again!! </p>";
     }
+    
+}
+
+
+function alert($color,$message){
+    return  "<p class='alert alert-$color'> $message </p>";
 }
 
 function getPhoto(){
