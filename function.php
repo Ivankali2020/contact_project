@@ -161,6 +161,8 @@ function register(){
             return 'Db error';
         }
 
+    }else{
+         return "<p class='alert alert-danger'> Something Was Wrong Try Again!! </p>";
     }
 }
 
