@@ -41,7 +41,7 @@
 
         .offcanvas {
             width: 40% !important;
-            height: auto;
+            height: 95%;
             margin: auto;
         }
 
@@ -68,13 +68,11 @@
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-
                     <?php if(isset($_POST['register'])){
 
-                         register();
+                     register();
 
                     } ?>
-
                         <form class="card "  method="post" enctype="multipart/form-data">
                             <!-- <div class="card-header bg-transparent">
                                 <h4 class="text-muted fw-bold mb-0"> Create New Contact <i class="bi bi-person-plus-fill"></i> </h4>
@@ -151,11 +149,8 @@
                 <div class="card mt-4 ">
                     <div class="card-body  p-0 ">
                         <div class="">
-                               <?php if(isset($_POST['register'])){
-
-                                    echo register();
-
-                                } ?>
+                                            
+                  
                             <table id="example" class="display align-middle text-center mb-0 table table-bordered table-hover table-striped table-responsive " style="width:100%">
                                 <thead class="table-success">
                                     <tr>
@@ -169,10 +164,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach (getPhoto() as $photo){ 
+                                <?php 
+                                    $photos = getPhoto();
+                                    if(empty($photos)){
+                                        echo alert('warning','No Data Available');
+                                    }
+                                    foreach ($photos as $photo){    
+                                        
                                     $date = date('d M Y',strtotime($photo['created_at']));    
                                 ?>   
                                     <tr>
+                                        
                                         <td>
                                             <div class=" d-flex justify-content-center align-items-center" id="image">
                                                 
@@ -194,7 +196,8 @@
                                         <td class="text-nowrap"><?php echo $date ?></td>
                                     </tr>
                                 <?php } ?>
-                             
+                                
+                                                
                                 </tbody>
                             </table>
                         </div>
